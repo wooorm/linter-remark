@@ -20,7 +20,7 @@ The below screencast shows this project, with warnings from
 [`remark-lint`][remark-lint] and
 [`remark-validate-links`][remark-validate-links].
 
-![screencast](./screencast.gif)
+![screencast][]
 
 ## Contributing
 
@@ -49,6 +49,8 @@ Please raise issues with **remark** on its [repository][remark-issues].
 [remark]: https://github.com/wooorm/remark
 
 [linter]: https://github.com/steelbrain/linter
+
+[screencast]: https://raw.githubusercontent.com/wooorm/linter-remark/master/screencast.gif
 
 [remark-lint]: https://github.com/wooorm/remark-lint
 
