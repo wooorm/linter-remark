@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.12'
+- '4.0'
+- '5.0'
+- '6.0'
+os:
+- linux
+- osx
+script: curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+  | sh
+addons:
+  apt:
+    packages:
+    - build-essential
+    - git
+    - libgnome-keyring-dev
+    - fakeroot
+deploy:
+  provider: npm
+  email: tituswormer@gmail.com
+  api_key:
+    secure: lL4fYpWD2npn34OWcOYlhwFZE7udvye2VnFRnqcORA/MNaz7aL+1+RMdZetiLI/3ohgO2+pZQ7/FOOsWMOO3eEqMT22t9s6gPqPjEEixYMhcTcldZl2txptr6vsKaeC6g1q+U2lpV+Y36KHO/gJ4UTm0na4PWqH3Qe3jjPiaKU+XtCdnl0KM3Y+y574QQaYKXpgt4M6cz6xsjSKgMp7hvnIPqDM8sHdTYd9UuQN0oMFroA8dlfBUFdot4dDUYZ6rLUxAz9H+UYSw+PVuixtddxCCGvX7LrMdWw851YBIFr3TbK6peMIlunzV6dl8Hra3puKY4eNU4b3AJ768Djsb40WBOvtd9XG5d7+STesllsv2W2ztxbFUvPA8mgd6BwhBblmTdtqMW2qVo6Cu04GFGfAQGiAQIgePsJGQAVS8UFvbRg3w1MoJM0PnX7CHS7j4L7CJrMu6nMIROQ6J9HEG/comw7ckZ1H/gtxDIx0l5C5rdtWaWrA6c3rEO2lA7yNxwb/XP3/TeWUlPShNoEiiJJd7mRIdndcH2RpItanHQScwyrxWW7kE6woNfxORFZEFqlGAxB1doJG8EcD9kods7nj16BhnG6geBtggXr1BwWpNaS0fokmknscg/DrpeoEgWSpud0THET06c7Zt3FHhB213dFG+M93P20Giju1PDRg=
+  on:
+    tags: true
+    node: '5.0'
