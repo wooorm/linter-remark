@@ -13,6 +13,19 @@
 /* Dependencies. */
 var engine = require('unified-engine-atom');
 
+/* Expose. */
+module.exports = {
+  activate: activate,
+  provideLinter: linter
+};
+
+/**
+ * Run package activation tasks.
+ */
+function activate() {
+  require('atom-package-deps').install('linter-remark');
+}
+
 /**
  * `linter-remark`.
  *
@@ -37,18 +50,3 @@ function linter() {
     })
   };
 }
-
-/**
- * Run package activation tasks.
- */
-function activate() {
-  require('atom-package-deps').install('linter-remark');
-}
-
-/*
- * Expose.
- */
-module.exports = {
-  activate: activate,
-  provideLinter: linter
-};
