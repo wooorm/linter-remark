@@ -44,8 +44,9 @@ function linter() {
     lint: engine({
       processor: require('remark'),
       pluginPrefix: 'remark',
-      rcName: '.remarkrc',
+      presetPrefix: 'remark-preset',
       packageField: 'remarkConfig',
+      rcName: '.remarkrc',
       ignoreName: '.remarkignore'
     })
   };
