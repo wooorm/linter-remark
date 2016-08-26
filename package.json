@@ -31,17 +31,14 @@
     }
   },
   "dependencies": {
-    "atom-package-deps": "^4.0.1",
-    "remark": "^5.0.0",
-    "unified-engine-atom": "^1.0.0"
+    "atom-package-deps": "^4.3.0",
+    "remark": "^6.0.0",
+    "unified-engine-atom": "^2.0.0"
   },
   "devDependencies": {
     "atom-tap-test-runner": "^1.0.0",
-    "remark-cli": "^1.0.0",
-    "remark-comment-config": "^4.0.0",
-    "remark-github": "^5.0.0",
-    "remark-lint": "^4.0.0",
-    "remark-validate-links": "^4.0.0",
+    "remark-cli": "^2.0.0",
+    "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.6.0",
     "xo": "^0.16.0"
   },
@@ -56,14 +53,6 @@
   },
   "remarkConfig": {
     "output": true,
-    "plugins": [
-      "comment-config",
-      "github",
-      "lint",
-      "validate-links"
-    ],
-    "settings": {
-      "bullet": "*"
-    }
+    "presets": "wooorm"
   }
 }
