@@ -54,5 +54,62 @@
   "remarkConfig": {
     "output": true,
     "presets": "wooorm"
+  },
+  "configSchema": {
+    "detectConfig": {
+      "title": "Config files",
+      "description": "Use `.remarkrc` files and `remarkConfig` in `package.json` files.",
+      "type": "boolean",
+      "default": true
+    },
+    "detectIgnore": {
+      "title": "Ignore files",
+      "description": "Use `.remarkignore` files.",
+      "type": "boolean",
+      "default": true
+    },
+    "settingGfm": {
+      "title": "GFM",
+      "type": "boolean",
+      "default": true
+    },
+    "settingYaml": {
+      "title": "YAML",
+      "type": "boolean",
+      "default": true
+    },
+    "settingCommonmark": {
+      "title": "CommonMark",
+      "type": "boolean",
+      "default": false
+    },
+    "settingPedantic": {
+      "title": "Pedantic",
+      "type": "boolean",
+      "default": false
+    },
+    "settingFootnotes": {
+      "title": "Footnotes",
+      "type": "boolean",
+      "default": false
+    },
+    "settingBreaks": {
+      "title": "Breaks",
+      "type": "boolean",
+      "default": false
+    },
+    "scopes": {
+      "title": "Scopes",
+      "description": "List of scopes for languages which will be checked (run `Editor: Log Cursor Scope` to determine the scopes for a file).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "source.gfm",
+        "source.pfm",
+        "text.md"
+      ]
+    }
   }
 }

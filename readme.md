@@ -1,7 +1,5 @@
 # linter-remark [![Build Status][travis-badge]][travis]
 
-<!--lint disable heading-increment no-duplicate-headings list-item-spacing-->
-
 [**Atom**][atom] [**linter**][linter] for [**remark**][remark].
 
 If you just want [remark-lint][], check out [linter-markdown][].
