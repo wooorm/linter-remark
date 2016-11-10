@@ -10,25 +10,17 @@
     "atom",
     "linter"
   ],
-  "files": [
-    "index.js"
-  ],
   "repository": "https://github.com/wooorm/linter-remark",
   "bugs": "https://github.com/wooorm/linter-remark/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
+  "files": [
+    "index.js"
+  ],
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
-  },
-  "atomTestRunner": "atom-tap-test-runner",
-  "providedServices": {
-    "linter": {
-      "versions": {
-        "1.0.0": "provideLinter"
-      }
-    }
   },
   "dependencies": {
     "atom-package-deps": "^4.3.0",
@@ -54,6 +46,14 @@
   "remarkConfig": {
     "output": true,
     "presets": "wooorm"
+  },
+  "atomTestRunner": "atom-tap-test-runner",
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
   },
   "configSchema": {
     "detectConfig": {
