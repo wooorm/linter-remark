@@ -1,11 +1,3 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module linter-remark
- * @fileoverview Check markdown with remark.
- */
-
 'use strict';
 
 /* global atom */
@@ -20,15 +12,11 @@ var subscriptions = new CompositeDisposable();
 var config = {};
 
 /* Expose. */
-module.exports = {
-  activate: activate,
-  deactivate: deactivate,
-  provideLinter: linter
-};
+exports.activate = activate;
+exports.deactivate = deactivate;
+exports.provideLinter = linter;
 
-/**
- * Run package activation tasks.
- */
+/* Activation tasks. */
 function activate() {
   var schema = require('./package').configSchema;
 
@@ -43,15 +31,12 @@ function activate() {
   });
 }
 
+/* Deactivation tasks. */
 function deactivate() {
   subscriptions.dispose();
 }
 
-/**
- * `linter-remark`.
- *
- * @return {LinterConfiguration}
- */
+/* Linter. */
 function linter() {
   return {
     grammarScopes: config.scopes,
@@ -62,6 +47,7 @@ function linter() {
   };
 }
 
+/* One run. */
 function lint(editor) {
   return engine({
     processor: require('remark'),

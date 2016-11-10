@@ -1,24 +1,11 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module linter-remark
- * @fileoverview Test suite for `linter-remark`.
- */
-
 'use strict';
 
 /* global atom */
 
-/* Dependencies. */
 var path = require('path');
 var test = require('tape');
 var lint = require('..');
 
-/* Methods. */
-var join = path.join;
-
-/* Tests. */
 test('linter-remark', function (t) {
   t.plan(2);
 
@@ -27,7 +14,7 @@ test('linter-remark', function (t) {
   Promise.resolve()
     .then(function () {
       return atom.packages.activatePackage(
-        join(path.resolve(__dirname, '..'))
+        path.join(path.resolve(__dirname, '..'))
       );
     })
     .then(function () {
@@ -35,7 +22,7 @@ test('linter-remark', function (t) {
     })
     .then(function () {
       return atom.workspace.open(
-        join(path.resolve(__dirname, '..'), 'readme.md')
+        path.join(path.resolve(__dirname, '..'), 'readme.md')
       );
     })
     .then(function (editor) {
@@ -45,7 +32,7 @@ test('linter-remark', function (t) {
       t.equal(messages.length, 0, 'should start out without messages');
     })
     .then(function () {
-      return atom.workspace.open(join(__dirname, 'invalid.md'));
+      return atom.workspace.open(path.join(__dirname, 'invalid.md'));
     })
     .then(function (editor) {
       return lint.provideLinter().lint(editor);
