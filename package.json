@@ -24,18 +24,18 @@
   },
   "dependencies": {
     "atom-package-deps": "^4.3.0",
-    "remark": "^6.0.0",
-    "unified-engine-atom": "^2.0.0"
+    "remark": "^7.0.0",
+    "unified-engine-atom": "^3.0.0"
   },
   "devDependencies": {
     "atom-tap-test-runner": "^1.0.0",
-    "remark-cli": "^2.0.0",
-    "remark-preset-wooorm": "^1.0.0",
+    "remark-cli": "^3.0.0",
+    "remark-preset-wooorm": "^2.0.0",
     "tape": "^4.6.0",
     "xo": "^0.17.0"
   },
   "scripts": {
-    "build": "remark *.md --quiet --frail",
+    "build": "remark *.md -qfo",
     "lint": "xo",
     "test-api": "atom --test test/index.js",
     "test": "npm run build && npm run lint && npm run test-api"
@@ -44,8 +44,9 @@
     "space": true
   },
   "remarkConfig": {
-    "output": true,
-    "presets": "wooorm"
+    "plugins": [
+      "preset-wooorm"
+    ]
   },
   "atomTestRunner": "atom-tap-test-runner",
   "providedServices": {
