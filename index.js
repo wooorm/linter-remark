@@ -42,7 +42,7 @@ function linter() {
     grammarScopes: config.scopes,
     name: 'remark',
     scope: 'file',
-    lintOnFly: true,
+    lintsOnChange: true,
     lint: lint
   };
 }
