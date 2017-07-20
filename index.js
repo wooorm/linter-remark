@@ -52,7 +52,6 @@ function lint(editor) {
   return engine({
     processor: require('remark'),
     pluginPrefix: 'remark',
-    presetPrefix: 'remark-preset',
     packageField: 'remarkConfig',
     rcName: '.remarkrc',
     ignoreName: '.remarkignore',
