@@ -31,9 +31,9 @@
     "unified-engine-atom": "^5.0.0"
   },
   "devDependencies": {
-    "atom-tap-test-runner": "^1.0.0",
-    "remark-cli": "^3.0.0",
-    "remark-preset-wooorm": "^2.0.0",
+    "atom-tap-test-runner": "^4.0.0",
+    "remark-cli": "^4.0.0",
+    "remark-preset-wooorm": "^3.0.0",
     "tape": "^4.6.0",
     "xo": "^0.18.0"
   },

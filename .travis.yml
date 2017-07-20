@@ -7,4 +7,5 @@ os:
 script:
 - bash <(curl -s https://raw.githubusercontent.com/wooorm/atom-travis/master/install.sh)
 - export DISPLAY=":99"
+- apm rebuild
 - npm test
