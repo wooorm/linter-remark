@@ -60,11 +60,9 @@ function lint(editor) {
     detectConfig: config.detectConfig,
     settings: {
       gfm: config.settingGfm,
-      yaml: config.settingYaml,
       commonmark: config.settingCommonmark,
       pedantic: config.settingPedantic,
-      footnotes: config.settingFootnotes,
-      breaks: config.settingBreaks
+      footnotes: config.settingFootnotes
     }
   })(editor);
 }

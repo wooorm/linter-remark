@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "atom-package-deps": "^4.3.0",
-    "remark": "^7.0.0",
+    "remark": "^8.0.0",
     "unified-engine-atom": "^5.0.0"
   },
   "devDependencies": {
@@ -78,11 +78,6 @@
       "type": "boolean",
       "default": true
     },
-    "settingYaml": {
-      "title": "YAML",
-      "type": "boolean",
-      "default": true
-    },
     "settingCommonmark": {
       "title": "CommonMark",
       "type": "boolean",
@@ -95,11 +90,6 @@
     },
     "settingFootnotes": {
       "title": "Footnotes",
-      "type": "boolean",
-      "default": false
-    },
-    "settingBreaks": {
-      "title": "Breaks",
       "type": "boolean",
       "default": false
     },
