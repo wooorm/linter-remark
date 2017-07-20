@@ -4,6 +4,7 @@ node_js:
 - '7.0'
 os:
 - linux
+dist: trusty
 script:
 - bash <(curl -s https://raw.githubusercontent.com/wooorm/atom-travis/master/install.sh)
 - export DISPLAY=":99"
