@@ -5,8 +5,10 @@ node_js:
 os:
 - linux
 dist: trusty
+# Needed to disable the auto-install step running `npm install`
+install: true
 script:
 - bash <(curl -s https://raw.githubusercontent.com/wooorm/atom-travis/master/install.sh)
 - export DISPLAY=":99"
-- apm rebuild
-- npm test
+- apm install
+- npm run test-api
