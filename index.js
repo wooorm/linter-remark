@@ -1,11 +1,13 @@
 'use strict';
 
-/* global atom */
+/* global atom, window */
 /* eslint-disable import/no-extraneous-dependencies */
 
 /* Dependencies. */
 var CompositeDisposable = require('atom').CompositeDisposable;
-var engine = require('unified-engine-atom');
+
+var engine;
+var idleCallbacks = new Set();
 
 /* Subscriptions. */
 var subscriptions = new CompositeDisposable();
@@ -18,9 +20,7 @@ exports.provideLinter = linter;
 
 /* Activation tasks. */
 function activate() {
-  var schema = require('./package').configSchema;
-
-  require('atom-package-deps').install('linter-remark');
+  var schema = require('./package.json').configSchema;
 
   Object.keys(schema).forEach(function (key) {
     subscriptions.add(atom.config.observe('linter-remark.' + key, setter));
@@ -29,10 +29,14 @@ function activate() {
       config[key] = value;
     }
   });
+
+  scheduleIdleTasks();
 }
 
 /* Deactivation tasks. */
 function deactivate() {
+  idleCallbacks.forEach(cancel);
+  idleCallbacks.clear();
   subscriptions.dispose();
 }
 
@@ -49,6 +53,8 @@ function linter() {
 
 /* One run. */
 function lint(editor) {
+  linterRemarkLoadDependencies();
+
   return engine({
     processor: require('remark'),
     pluginPrefix: 'remark',
@@ -64,4 +70,36 @@ function lint(editor) {
       footnotes: config.settingFootnotes
     }
   })(editor);
+}
+
+function scheduleIdleTasks() {
+  if (!atom.inSpecMode()) {
+    queue(linterRemarkInstallPeerPackages);
+    queue(linterRemarkLoadDependencies);
+  }
+}
+
+function linterRemarkInstallPeerPackages() {
+  require('atom-package-deps').install('linter-remark');
+}
+
+function linterRemarkLoadDependencies() {
+  if (!engine) {
+    engine = require('unified-engine-atom');
+  }
+}
+
+function queue(work) {
+  var id = window.requestIdleCallback(callback);
+
+  idleCallbacks.add(id);
+
+  function callback() {
+    idleCallbacks.delete(id);
+    work();
+  }
+}
+
+function cancel(callbackID) {
+  window.cancelIdleCallback(callbackID);
 }
