@@ -44,7 +44,7 @@ test('linter-remark', function (t) {
         }),
         [
           'Remove 1 line before node (remark-lint:no-consecutive-blank-lines)',
-          'Link to unknown heading: `heading` (remark-validate-links)'
+          'Link to unknown heading: `heading` (remark-validate-links:missing-heading)'
         ],
         'should emit messages'
       );
