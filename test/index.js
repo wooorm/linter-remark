@@ -18,6 +18,10 @@ test('linter-remark', function (t) {
       );
     })
     .then(function () {
+      /* Linter/Atom doesn’t activate linter by default anymore? */
+      lint.activate();
+    })
+    .then(function () {
       return atom.packages.activatePackage('language-gfm');
     })
     .then(function () {
