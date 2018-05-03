@@ -1,43 +1,43 @@
-'use strict';
+'use strict'
 
 /* global atom, window */
 /* eslint-disable import/no-extraneous-dependencies */
 
 /* Dependencies. */
-var CompositeDisposable = require('atom').CompositeDisposable;
+var CompositeDisposable = require('atom').CompositeDisposable
 
-var engine;
-var idleCallbacks = new Set();
+var engine
+var idleCallbacks = new Set()
 
 /* Subscriptions. */
-var subscriptions = new CompositeDisposable();
-var config = {};
+var subscriptions = new CompositeDisposable()
+var config = {}
 
 /* Expose. */
-exports.activate = activate;
-exports.deactivate = deactivate;
-exports.provideLinter = linter;
+exports.activate = activate
+exports.deactivate = deactivate
+exports.provideLinter = linter
 
 /* Activation tasks. */
 function activate() {
-  var schema = require('./package.json').configSchema;
+  var schema = require('./package.json').configSchema
 
-  Object.keys(schema).forEach(function (key) {
-    subscriptions.add(atom.config.observe('linter-remark.' + key, setter));
+  Object.keys(schema).forEach(function(key) {
+    subscriptions.add(atom.config.observe('linter-remark.' + key, setter))
 
     function setter(value) {
-      config[key] = value;
+      config[key] = value
     }
-  });
+  })
 
-  scheduleIdleTasks();
+  scheduleIdleTasks()
 }
 
 /* Deactivation tasks. */
 function deactivate() {
-  idleCallbacks.forEach(cancel);
-  idleCallbacks.clear();
-  subscriptions.dispose();
+  idleCallbacks.forEach(cancel)
+  idleCallbacks.clear()
+  subscriptions.dispose()
 }
 
 /* Linter. */
@@ -48,12 +48,12 @@ function linter() {
     scope: 'file',
     lintsOnChange: true,
     lint: lint
-  };
+  }
 }
 
 /* One run. */
 function lint(editor) {
-  linterRemarkLoadDependencies();
+  linterRemarkLoadDependencies()
 
   return engine({
     processor: require('remark'),
@@ -69,37 +69,37 @@ function lint(editor) {
       pedantic: config.settingPedantic,
       footnotes: config.settingFootnotes
     }
-  })(editor);
+  })(editor)
 }
 
 function scheduleIdleTasks() {
   if (!atom.inSpecMode()) {
-    queue(linterRemarkInstallPeerPackages);
-    queue(linterRemarkLoadDependencies);
+    queue(linterRemarkInstallPeerPackages)
+    queue(linterRemarkLoadDependencies)
   }
 }
 
 function linterRemarkInstallPeerPackages() {
-  require('atom-package-deps').install('linter-remark');
+  require('atom-package-deps').install('linter-remark')
 }
 
 function linterRemarkLoadDependencies() {
   if (!engine) {
-    engine = require('unified-engine-atom');
+    engine = require('unified-engine-atom')
   }
 }
 
 function queue(work) {
-  var id = window.requestIdleCallback(callback);
+  var id = window.requestIdleCallback(callback)
 
-  idleCallbacks.add(id);
+  idleCallbacks.add(id)
 
   function callback() {
-    idleCallbacks.delete(id);
-    work();
+    idleCallbacks.delete(id)
+    work()
   }
 }
 
 function cancel(callbackID) {
-  window.cancelIdleCallback(callbackID);
+  window.cancelIdleCallback(callbackID)
 }
