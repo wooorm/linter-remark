@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-- '4.0'
-- '8.0'
+- lts/boron
+- node
 os:
 - linux
 dist: trusty
