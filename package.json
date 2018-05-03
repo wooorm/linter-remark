@@ -10,7 +10,7 @@
     "atom",
     "linter"
   ],
-  "repository": "https://github.com/wooorm/linter-remark",
+  "repository": "wooorm/linter-remark",
   "bugs": "https://github.com/wooorm/linter-remark/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
