@@ -2,22 +2,22 @@
 
 /* global atom, window */
 
-/* Dependencies. */
+// Dependencies.
 var CompositeDisposable = require('atom').CompositeDisposable
 
 var engine
 var idleCallbacks = new Set()
 
-/* Subscriptions. */
+// Subscriptions.
 var subscriptions = new CompositeDisposable()
 var config = {}
 
-/* Expose. */
+// Expose.
 exports.activate = activate
 exports.deactivate = deactivate
 exports.provideLinter = linter
 
-/* Activation tasks. */
+// Activation tasks.
 function activate() {
   var schema = require('./package.json').configSchema
 
@@ -32,14 +32,14 @@ function activate() {
   scheduleIdleTasks()
 }
 
-/* Deactivation tasks. */
+// Deactivation tasks.
 function deactivate() {
   idleCallbacks.forEach(cancel)
   idleCallbacks.clear()
   subscriptions.dispose()
 }
 
-/* Linter. */
+// Linter.
 function linter() {
   return {
     grammarScopes: config.scopes,
@@ -50,7 +50,7 @@ function linter() {
   }
 }
 
-/* One run. */
+// One run.
 function lint(editor) {
   linterRemarkLoadDependencies()
 

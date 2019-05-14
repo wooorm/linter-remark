@@ -18,7 +18,7 @@ test('linter-remark', function(t) {
       )
     })
     .then(function() {
-      /* Linter/Atom doesn’t activate linter by default anymore? */
+      // Linter/Atom doesn’t activate linter by default anymore?
       lint.activate()
     })
     .then(function() {
