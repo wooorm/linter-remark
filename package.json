@@ -39,7 +39,7 @@
     "xo": "^0.20.0"
   },
   "scripts": {
-    "format": "remark *.md -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark *.md -qfo && prettier --write \"**/*.js\" && xo --fix",
     "test-api": "atom --test test/index.js",
     "test": "npm run format && npm run test-api"
   },
