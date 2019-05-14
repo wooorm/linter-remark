@@ -1,7 +1,6 @@
 'use strict'
 
 /* global atom, window */
-/* eslint-disable import/no-extraneous-dependencies */
 
 /* Dependencies. */
 var CompositeDisposable = require('atom').CompositeDisposable
