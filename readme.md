@@ -38,7 +38,7 @@ Please raise issues with **remark** on its [repository][remark-issues].
 
 [apm-install]: https://github.com/atom/apm
 
-[license]: LICENSE
+[license]: license
 
 [author]: http://wooorm.com
 
