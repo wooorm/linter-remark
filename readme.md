@@ -40,7 +40,7 @@ Please raise issues with **remark** on its [repository][remark-issues].
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [atom]: https://atom.io
 
