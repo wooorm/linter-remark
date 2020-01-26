@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "atom-package-deps": "^5.1.0",
-    "remark": "^10.0.0",
+    "remark": "^11.0.0",
     "unified-engine-atom": "^8.0.0"
   },
   "devDependencies": {
