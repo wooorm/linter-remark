@@ -4,21 +4,21 @@
 
 If you just want [remark-lint][], check out [linter-markdown][].
 
-## Installation
+## Install
 
-[apm][apm-install]:
+[apm][]:
 
-```bash
+```sh
 apm install linter-remark
 ```
 
-## Usage
+## Use
 
 The below screencast shows this project, with warnings from
 [`remark-lint`][remark-lint] and
 [`remark-validate-links`][remark-validate-links].
 
-![screencast][]
+![][screencast]
 
 ## Contributing
 
@@ -36,7 +36,7 @@ Please raise issues with **remark** on its [repository][remark-issues].
 
 [travis]: https://travis-ci.org/wooorm/linter-remark
 
-[apm-install]: https://github.com/atom/apm
+[apm]: https://github.com/atom/apm
 
 [license]: license
 
