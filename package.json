@@ -32,7 +32,7 @@
   "dependencies": {
     "atom-package-deps": "^5.1.0",
     "remark": "^12.0.0",
-    "unified-engine-atom": "^8.0.0"
+    "unified-engine-atom": "^9.0.0"
   },
   "devDependencies": {
     "atom-tap-test-runner": "^7.0.0",
