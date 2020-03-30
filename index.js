@@ -65,8 +65,7 @@ function lint(editor) {
     settings: {
       gfm: config.settingGfm,
       commonmark: config.settingCommonmark,
-      pedantic: config.settingPedantic,
-      footnotes: config.settingFootnotes
+      pedantic: config.settingPedantic
     }
   })(editor)
 }

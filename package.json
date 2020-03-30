@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "atom-package-deps": "^5.1.0",
-    "remark": "^11.0.0",
+    "remark": "^12.0.0",
     "unified-engine-atom": "^8.0.0"
   },
   "devDependencies": {
@@ -97,11 +97,6 @@
     },
     "settingPedantic": {
       "title": "Pedantic",
-      "type": "boolean",
-      "default": false
-    },
-    "settingFootnotes": {
-      "title": "Footnotes",
       "type": "boolean",
       "default": false
     },
