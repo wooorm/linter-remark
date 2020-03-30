@@ -6,44 +6,44 @@ var path = require('path')
 var test = require('tape')
 var lint = require('..')
 
-test('linter-remark', function(t) {
+test('linter-remark', function (t) {
   t.plan(2)
 
   atom.workspace.destroyActivePaneItem()
 
   Promise.resolve()
-    .then(function() {
+    .then(function () {
       return atom.packages.activatePackage(
         path.join(path.resolve(__dirname, '..'))
       )
     })
-    .then(function() {
+    .then(function () {
       // Linter/Atom doesn’t activate linter by default anymore?
       lint.activate()
     })
-    .then(function() {
+    .then(function () {
       return atom.packages.activatePackage('language-gfm')
     })
-    .then(function() {
+    .then(function () {
       return atom.workspace.open(
         path.join(path.resolve(__dirname, '..'), 'readme.md')
       )
     })
-    .then(function(editor) {
+    .then(function (editor) {
       return lint.provideLinter().lint(editor)
     })
-    .then(function(messages) {
+    .then(function (messages) {
       t.equal(messages.length, 0, 'should start out without messages')
     })
-    .then(function() {
+    .then(function () {
       return atom.workspace.open(path.join(__dirname, 'invalid.md'))
     })
-    .then(function(editor) {
+    .then(function (editor) {
       return lint.provideLinter().lint(editor)
     })
-    .then(function(messages) {
+    .then(function (messages) {
       t.deepEqual(
-        messages.map(function(message) {
+        messages.map(function (message) {
           return message.excerpt
         }),
         [

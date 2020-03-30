@@ -21,7 +21,7 @@ exports.provideLinter = linter
 function activate() {
   var schema = require('./package.json').configSchema
 
-  Object.keys(schema).forEach(function(key) {
+  Object.keys(schema).forEach(function (key) {
     subscriptions.add(atom.config.observe('linter-remark.' + key, setter))
 
     function setter(value) {
