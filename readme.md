@@ -48,7 +48,7 @@ Please raise issues with **remark** on its [repository][remark-issues].
 
 [linter]: https://github.com/steelbrain/linter
 
-[screencast]: https://raw.githubusercontent.com/wooorm/linter-remark/master/screencast.gif
+[screencast]: https://raw.githubusercontent.com/wooorm/linter-remark/main/screencast.gif
 
 [remark-lint]: https://github.com/remarkjs/remark-lint
 

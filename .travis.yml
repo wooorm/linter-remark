@@ -6,7 +6,7 @@ os: linux
 dist: trusty
 install: true
 script:
-  - bash <(curl -s https://raw.githubusercontent.com/wooorm/atom-travis/master/install.sh)
+  - bash <(curl -s https://raw.githubusercontent.com/wooorm/atom-travis/main/install.sh)
   - export DISPLAY=":99"
   - apm install
   - npm run test-api
