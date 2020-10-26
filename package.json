@@ -88,21 +88,6 @@
       "type": "boolean",
       "default": true
     },
-    "settingGfm": {
-      "title": "GFM",
-      "type": "boolean",
-      "default": true
-    },
-    "settingCommonmark": {
-      "title": "CommonMark",
-      "type": "boolean",
-      "default": false
-    },
-    "settingPedantic": {
-      "title": "Pedantic",
-      "type": "boolean",
-      "default": false
-    },
     "scopes": {
       "title": "Scopes",
       "description": "List of scopes for languages which will be checked (run `Editor: Log Cursor Scope` to determine the scopes for a file).",

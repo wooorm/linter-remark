@@ -61,12 +61,7 @@ function lint(editor) {
     rcName: '.remarkrc',
     ignoreName: '.remarkignore',
     detectIgnore: config.detectIgnore,
-    detectConfig: config.detectConfig,
-    settings: {
-      gfm: config.settingGfm,
-      commonmark: config.settingCommonmark,
-      pedantic: config.settingPedantic
-    }
+    detectConfig: config.detectConfig
   })(editor)
 }
 
