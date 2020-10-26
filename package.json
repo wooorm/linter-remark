@@ -64,7 +64,13 @@
   },
   "remarkConfig": {
     "plugins": [
-      "preset-wooorm"
+      "preset-wooorm",
+      [
+        "github",
+        {
+          "repository": "wooorm/linter-remark"
+        }
+      ]
     ]
   },
   "atomTestRunner": "atom-tap-test-runner",
