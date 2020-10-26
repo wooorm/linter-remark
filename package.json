@@ -37,13 +37,13 @@
   "devDependencies": {
     "atom-tap-test-runner": "^7.0.0",
     "prettier": "^2.0.0",
-    "remark-cli": "^8.0.0",
-    "remark-preset-wooorm": "^7.0.0",
+    "remark-cli": "^9.0.0",
+    "remark-preset-wooorm": "^8.0.0",
     "tape": "^5.0.0",
-    "xo": "^0.32.0"
+    "xo": "^0.34.0"
   },
   "scripts": {
-    "format": "remark *.md -qfo && prettier . --write && xo --fix",
+    "format": "remark . -qfo --ignore-pattern test/ && prettier . -w --loglevel warn && xo --fix",
     "test-api": "atom --test test/index.js",
     "test": "npm run format && npm run test-api"
   },
