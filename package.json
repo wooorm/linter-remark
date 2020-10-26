@@ -10,7 +10,7 @@
     "atom",
     "linter"
   ],
-  "repository": "https://github.com/wooorm/linter-remark",
+  "repository": "git@github.com:wooorm/linter-remark.git",
   "bugs": "https://github.com/wooorm/linter-remark/issues",
   "funding": {
     "type": "github",
