@@ -1,4 +1,4 @@
-# linter-remark [![Build Status][travis-badge]][travis]
+# linter-remark [![Build Status][build-badge]][build]
 
 [**Atom**][atom] [**linter**][linter] for [**remark**][remark].
 
@@ -32,9 +32,9 @@ Please raise issues with **remark** on its [repository][remark-issues].
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/linter-remark.svg
+[build-badge]: https://github.com/wooorm/linter-remark/workflows/main/badge.svg
 
-[travis]: https://travis-ci.org/wooorm/linter-remark
+[build]: https://github.com/wooorm/linter-remark/actions
 
 [apm]: https://github.com/atom/apm
 
