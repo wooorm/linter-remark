@@ -2,8 +2,6 @@
 
 [**Atom**][atom] [**linter**][linter] for [**remark**][remark].
 
-If you just want [remark-lint][], check out [linter-markdown][].
-
 ## Install
 
 [apm][]:
@@ -53,8 +51,6 @@ Please raise issues with **remark** on its [repository][remark-issues].
 [remark-lint]: https://github.com/remarkjs/remark-lint
 
 [remark-validate-links]: https://github.com/remarkjs/remark-validate-links
-
-[linter-markdown]: https://github.com/AtomLinter/linter-markdown
 
 [linter-issues]: https://github.com/wooorm/linter-remark/issues
 
