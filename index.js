@@ -1,98 +1,31 @@
 'use strict'
 
-/* global atom, window */
+const { AutoLanguageClient } = require('atom-languageclient')
+const { install } = require('atom-package-deps')
 
-// Dependencies.
-var CompositeDisposable = require('atom').CompositeDisposable
+const pkg = require('./package.json')
 
-var engine
-var idleCallbacks = new Set()
+class RemarkLanguageClient extends AutoLanguageClient {
+  getGrammarScopes() {
+    return pkg.enhancedScopes
+  }
 
-// Subscriptions.
-var subscriptions = new CompositeDisposable()
-var config = {}
+  getLanguageName() {
+    return 'Markdown'
+  }
 
-// Expose.
-exports.activate = activate
-exports.deactivate = deactivate
-exports.provideLinter = linter
+  getServerName() {
+    return 'Remark'
+  }
 
-// Activation tasks.
-function activate() {
-  var schema = require('./package.json').configSchema
+  startServerProcess() {
+    return super.spawn(require.resolve('.bin/remark-language-server'), ['--stdio'])
+  }
 
-  Object.keys(schema).forEach(function (key) {
-    subscriptions.add(atom.config.observe('linter-remark.' + key, setter))
-
-    function setter(value) {
-      config[key] = value
-    }
-  })
-
-  scheduleIdleTasks()
-}
-
-// Deactivation tasks.
-function deactivate() {
-  idleCallbacks.forEach(cancel)
-  idleCallbacks.clear()
-  subscriptions.dispose()
-}
-
-// Linter.
-function linter() {
-  return {
-    grammarScopes: config.scopes,
-    name: 'remark',
-    scope: 'file',
-    lintsOnChange: true,
-    lint: lint
+  activate() {
+    install(pkg.name)
+    super.activate()
   }
 }
 
-// One run.
-function lint(editor) {
-  linterRemarkLoadDependencies()
-
-  return engine({
-    processor: require('remark'),
-    pluginPrefix: 'remark',
-    packageField: 'remarkConfig',
-    rcName: '.remarkrc',
-    ignoreName: '.remarkignore',
-    detectIgnore: config.detectIgnore,
-    detectConfig: config.detectConfig
-  })(editor)
-}
-
-function scheduleIdleTasks() {
-  if (!atom.inSpecMode()) {
-    queue(linterRemarkInstallPeerPackages)
-    queue(linterRemarkLoadDependencies)
-  }
-}
-
-function linterRemarkInstallPeerPackages() {
-  require('atom-package-deps').install('linter-remark')
-}
-
-function linterRemarkLoadDependencies() {
-  if (!engine) {
-    engine = require('unified-engine-atom')
-  }
-}
-
-function queue(work) {
-  var id = window.requestIdleCallback(callback)
-
-  idleCallbacks.add(id)
-
-  function callback() {
-    idleCallbacks.delete(id)
-    work()
-  }
-}
-
-function cancel(callbackID) {
-  window.cancelIdleCallback(callbackID)
-}
+module.exports = new RemarkLanguageClient()
