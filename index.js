@@ -1,7 +1,7 @@
 'use strict'
 
-const { AutoLanguageClient } = require('atom-languageclient')
-const { install } = require('atom-package-deps')
+const {AutoLanguageClient} = require('atom-languageclient')
+const {install} = require('atom-package-deps')
 
 const pkg = require('./package.json')
 
@@ -19,7 +19,9 @@ class RemarkLanguageClient extends AutoLanguageClient {
   }
 
   startServerProcess() {
-    return super.spawn(require.resolve('.bin/remark-language-server'), ['--stdio'])
+    return super.spawn(require.resolve('.bin/remark-language-server'), [
+      '--stdio'
+    ])
   }
 
   activate() {
