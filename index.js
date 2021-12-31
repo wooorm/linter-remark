@@ -15,7 +15,7 @@ class RemarkLanguageClient extends AutoLanguageClient {
   }
 
   getServerName() {
-    return 'Remark'
+    return 'remark'
   }
 
   startServerProcess() {
